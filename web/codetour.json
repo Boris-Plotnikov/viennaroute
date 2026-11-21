@@ -1,0 +1,84 @@
+{
+  "root": "..",
+  "flows": [
+    {
+      "id": "dijkstra",
+      "title": "Dijkstra on (station, line) states",
+      "summary": "A node of the search is a pair (station, line), not just a station. Riding to the next stop costs its minutes, switching line at the same station costs the transfer time — so the algorithm itself decides when a change is worth it.",
+      "routes": ["/"],
+      "endpoints": ["CALL route"],
+      "steps": [
+        { "layer": "Logic", "file": "src/route_planner.cpp", "symbol": "type:State", "note": "std::tie gives the ordering needed for std::map." },
+        { "layer": "Logic", "file": "src/route_planner.cpp", "symbol": "method:RoutePlanner::find", "note": "Priority queue, relaxation, then the path is rebuilt from came_from and grouped into legs." },
+        { "layer": "Header", "file": "include/viennaroute/route_planner.h", "symbol": "type:Route", "note": "" },
+        { "layer": "Test", "file": "tests/route_planner_test.cpp", "symbol": "test:RoutePlannerTest.TransferPenaltyChangesTheBestRoute", "note": "A small hand-made network where the answer depends on the transfer cost." },
+        { "layer": "Test", "file": "tests/route_planner_test.cpp", "symbol": "test:RoutePlannerTest.RealNetworkUsesBothTransfersWhenNeeded", "note": "" }
+      ]
+    },
+    {
+      "id": "search",
+      "title": "Fuzzy station search",
+      "summary": "Exact name, then unique prefix, then substring, then Levenshtein distance. Umlauts and case are normalized first, so “laengenfeldgasse” and “Längenfeldgasse” are the same.",
+      "routes": ["/"],
+      "endpoints": ["CALL search"],
+      "steps": [
+        { "layer": "Logic", "file": "src/station_search.cpp", "symbol": "method:StationSearch::find", "note": "" },
+        { "layer": "Logic", "file": "src/text.cpp", "symbol": "method:normalize", "note": "" },
+        { "layer": "Logic", "file": "src/text.cpp", "symbol": "method:levenshtein", "note": "Classic dynamic programming with two rows." },
+        { "layer": "Test", "file": "tests/station_search_test.cpp", "symbol": "test:StationSearchTest.ToleratesTypos", "note": "" },
+        { "layer": "Test", "file": "tests/station_search_test.cpp", "symbol": "test:StationSearchTest.AmbiguousInputGivesSuggestions", "note": "" }
+      ]
+    },
+    {
+      "id": "network",
+      "title": "The network as a graph",
+      "summary": "Two CSV files describe the U-Bahn: lines with their colours and segments with travel minutes. Stations get integer ids; every segment is added in both directions.",
+      "routes": ["/"],
+      "endpoints": ["CALL stations", "CALL lines"],
+      "steps": [
+        { "layer": "Logic", "file": "src/network.cpp", "symbol": "method:Network::load", "note": "" },
+        { "layer": "Logic", "file": "src/network.cpp", "symbol": "method:Network::add_segment", "note": "" },
+        { "layer": "Header", "file": "include/viennaroute/network.h", "symbol": "type:Network", "note": "Adjacency list: vector of vectors of Connection." },
+        { "layer": "Test", "file": "tests/network_test.cpp", "symbol": "test:NetworkTest.SegmentsWorkInBothDirections", "note": "" },
+        { "layer": "Test", "file": "tests/network_test.cpp", "symbol": "test:NetworkTest.RejectsInvalidSegments", "note": "" }
+      ]
+    },
+    {
+      "id": "output",
+      "title": "Text and HTML output",
+      "summary": "The same Route is printed for the terminal and exported as a coloured HTML diagram. Station names are escaped before they go into HTML.",
+      "routes": ["/"],
+      "endpoints": [],
+      "steps": [
+        { "layer": "Logic", "file": "src/formatter.cpp", "symbol": "method:to_text", "note": "" },
+        { "layer": "Logic", "file": "src/formatter.cpp", "symbol": "method:to_html", "note": "" },
+        { "layer": "Logic", "file": "src/formatter.cpp", "symbol": "method:escape_html", "note": "" },
+        { "layer": "Test", "file": "tests/route_planner_test.cpp", "symbol": "test:FormatterTest.TextAndHtmlContainStations", "note": "" }
+      ]
+    },
+    {
+      "id": "cli",
+      "title": "The terminal program",
+      "summary": "main.cpp only reads arguments and prints results; all logic is in the library, which is why the same code can run in tests and in this page.",
+      "routes": ["/"],
+      "endpoints": [],
+      "steps": [
+        { "layer": "Command", "file": "src/main.cpp", "symbol": "method:run_route", "note": "" },
+        { "layer": "Command", "file": "src/main.cpp", "symbol": "method:main", "note": "" }
+      ]
+    },
+    {
+      "id": "wasm",
+      "title": "C++ in the browser",
+      "summary": "The library is compiled with Emscripten to WebAssembly. A small Planner class converts C++ results into JavaScript objects; the CSV files are embedded into the module.",
+      "routes": ["/"],
+      "endpoints": [],
+      "steps": [
+        { "layer": "WebAssembly", "file": "wasm/bindings.cpp", "symbol": "method:route", "note": "Search both stations, run Dijkstra, return legs, text and HTML." },
+        { "layer": "WebAssembly", "file": "wasm/bindings.cpp", "symbol": "file", "note": "" },
+        { "layer": "Build", "file": "CMakeLists.txt", "symbol": "file", "note": "One CMake file builds the terminal program, the tests and the WebAssembly module." },
+        { "layer": "Build", "file": "web/scripts/build-wasm.sh", "symbol": "file", "note": "" }
+      ]
+    }
+  ]
+}

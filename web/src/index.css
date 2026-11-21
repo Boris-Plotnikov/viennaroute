@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: 226 2 16;
+  --brand-dark: 170 10 20;
+  --accent: 14 165 233;
+  --ink: 15 23 42;
+  --muted: 100 116 139;
+  --surface: 248 250 252;
+  --code-bg: 15 23 42;
+  --code-text: 226 232 240;
+  --code-gutter: 100 116 139;
+  --code-keyword: 192 132 252;
+  --code-string: 134 239 172;
+  --code-type: 125 211 252;
+  --code-annotation: 251 191 36;
+  --code-number: 251 146 60;
+}
+
+body {
+  @apply bg-surface text-ink antialiased;
+}
+
+.card {
+  @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+}
+
+.chip {
+  @apply rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-xs text-slate-700 transition hover:border-brand hover:text-brand;
+}
+
+.code-block {
+  background: rgb(var(--code-bg));
+  color: rgb(var(--code-text));
+}
+
+.tok-gutter { color: rgb(var(--code-gutter)); }
+.tok-keyword { color: rgb(var(--code-keyword)); }
+.tok-string { color: rgb(var(--code-string)); }
+.tok-type { color: rgb(var(--code-type)); }
+.tok-annotation { color: rgb(var(--code-annotation)); }
+.tok-number { color: rgb(var(--code-number)); }

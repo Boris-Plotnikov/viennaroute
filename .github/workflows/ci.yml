@@ -1,0 +1,29 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --config Release
+      - name: Test
+        run: ctest --test-dir build -C Release --output-on-failure
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile to WebAssembly
+        run: sh web/scripts/build-wasm.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build the browser page
+        working-directory: web
+        run: npm install --no-audit --no-fund && npm run build

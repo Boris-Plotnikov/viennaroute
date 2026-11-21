@@ -1,0 +1,101 @@
+line,from,to,minutes
+U1,Oberlaa,Neulaa,2
+U1,Neulaa,Alaudagasse,2
+U1,Alaudagasse,Altes Landgut,2
+U1,Altes Landgut,Troststraße,2
+U1,Troststraße,Reumannplatz,2
+U1,Reumannplatz,Keplerplatz,1
+U1,Keplerplatz,Südtiroler Platz-Hauptbahnhof,2
+U1,Südtiroler Platz-Hauptbahnhof,Taubstummengasse,2
+U1,Taubstummengasse,Karlsplatz,1
+U1,Karlsplatz,Stephansplatz,1
+U1,Stephansplatz,Schwedenplatz,2
+U1,Schwedenplatz,Nestroyplatz,1
+U1,Nestroyplatz,Praterstern,2
+U1,Praterstern,Vorgartenstraße,2
+U1,Vorgartenstraße,Donauinsel,2
+U1,Donauinsel,Kaisermühlen-VIC,2
+U1,Kaisermühlen-VIC,Alte Donau,1
+U1,Alte Donau,Kagran,2
+U1,Kagran,Kagraner Platz,1
+U1,Kagraner Platz,Rennbahnweg,2
+U1,Rennbahnweg,Aderklaaer Straße,1
+U1,Aderklaaer Straße,Großfeldsiedlung,2
+U1,Großfeldsiedlung,Leopoldau,1
+U2,Schottentor,Schottenring,2
+U2,Schottenring,Taborstraße,2
+U2,Taborstraße,Praterstern,1
+U2,Praterstern,Messe-Prater,2
+U2,Messe-Prater,Krieau,1
+U2,Krieau,Stadion,2
+U2,Stadion,Donaumarina,2
+U2,Donaumarina,Donaustadtbrücke,2
+U2,Donaustadtbrücke,Stadlau,2
+U2,Stadlau,Hardeggasse,1
+U2,Hardeggasse,Donauspital,2
+U2,Donauspital,Aspernstraße,2
+U2,Aspernstraße,Hausfeldstraße,2
+U2,Hausfeldstraße,Aspern Nord,2
+U2,Aspern Nord,Seestadt,2
+U3,Ottakring,Kendlerstraße,1
+U3,Kendlerstraße,Hütteldorfer Straße,2
+U3,Hütteldorfer Straße,Johnstraße,1
+U3,Johnstraße,Schweglerstraße,1
+U3,Schweglerstraße,Westbahnhof,2
+U3,Westbahnhof,Zieglergasse,1
+U3,Zieglergasse,Neubaugasse,1
+U3,Neubaugasse,Volkstheater,2
+U3,Volkstheater,Herrengasse,1
+U3,Herrengasse,Stephansplatz,1
+U3,Stephansplatz,Stubentor,2
+U3,Stubentor,Landstraße,1
+U3,Landstraße,Rochusgasse,1
+U3,Rochusgasse,Kardinal-Nagl-Platz,1
+U3,Kardinal-Nagl-Platz,Schlachthausgasse,1
+U3,Schlachthausgasse,Erdberg,2
+U3,Erdberg,Gasometer,2
+U3,Gasometer,Zippererstraße,1
+U3,Zippererstraße,Enkplatz,1
+U3,Enkplatz,Simmering,2
+U4,Hütteldorf,Ober St. Veit,2
+U4,Ober St. Veit,Unter St. Veit,1
+U4,Unter St. Veit,Braunschweiggasse,2
+U4,Braunschweiggasse,Hietzing,2
+U4,Hietzing,Schönbrunn,1
+U4,Schönbrunn,Meidling Hauptstraße,2
+U4,Meidling Hauptstraße,Längenfeldgasse,1
+U4,Längenfeldgasse,Margaretengürtel,2
+U4,Margaretengürtel,Pilgramgasse,1
+U4,Pilgramgasse,Kettenbrückengasse,2
+U4,Kettenbrückengasse,Karlsplatz,1
+U4,Karlsplatz,Stadtpark,2
+U4,Stadtpark,Landstraße,1
+U4,Landstraße,Schwedenplatz,2
+U4,Schwedenplatz,Schottenring,2
+U4,Schottenring,Roßauer Lände,2
+U4,Roßauer Lände,Friedensbrücke,1
+U4,Friedensbrücke,Spittelau,2
+U4,Spittelau,Heiligenstadt,2
+U6,Siebenhirten,Perfektastraße,1
+U6,Perfektastraße,Erlaaer Straße,2
+U6,Erlaaer Straße,Alterlaa,1
+U6,Alterlaa,Am Schöpfwerk,2
+U6,Am Schöpfwerk,Tscherttegasse,1
+U6,Tscherttegasse,Bahnhof Meidling,2
+U6,Bahnhof Meidling,Niederhofstraße,1
+U6,Niederhofstraße,Längenfeldgasse,2
+U6,Längenfeldgasse,Gumpendorfer Straße,1
+U6,Gumpendorfer Straße,Westbahnhof,2
+U6,Westbahnhof,Burggasse-Stadthalle,1
+U6,Burggasse-Stadthalle,Thaliastraße,1
+U6,Thaliastraße,Josefstädter Straße,2
+U6,Josefstädter Straße,Alser Straße,1
+U6,Alser Straße,Michelbeuern-AKH,1
+U6,Michelbeuern-AKH,Währinger Straße-Volksoper,2
+U6,Währinger Straße-Volksoper,Nußdorfer Straße,1
+U6,Nußdorfer Straße,Spittelau,2
+U6,Spittelau,Jägerstraße,1
+U6,Jägerstraße,Dresdner Straße,1
+U6,Dresdner Straße,Handelskai,2
+U6,Handelskai,Neue Donau,2
+U6,Neue Donau,Floridsdorf,2

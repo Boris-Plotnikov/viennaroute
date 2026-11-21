@@ -1,0 +1,9 @@
+build/
+cmake-build-*/
+.vscode/
+.idea/
+build-wasm/
+web/node_modules/
+web/dist/
+web/src/generated/
+web/src/wasm/
