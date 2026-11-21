@@ -4,7 +4,7 @@
     {
       "id": "dijkstra",
       "title": "Dijkstra on (station, line) states",
-      "summary": "A node of the search is a pair (station, line), not just a station. Riding to the next stop costs its minutes, switching line at the same station costs the transfer time — so the algorithm itself decides when a change is worth it.",
+      "summary": "A node of the search is a pair (station, line). Riding to the next stop costs its minutes, a change of line at the same station costs the transfer time. The number of changes follows from the costs.",
       "routes": ["/"],
       "endpoints": ["CALL route"],
       "steps": [

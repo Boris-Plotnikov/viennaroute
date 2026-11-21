@@ -4,7 +4,7 @@ Route planners usually hide how they work. ViennaRoute is a small command-line p
 
 ![CI](https://github.com/Boris-Plotnikov/viennaroute/actions/workflows/ci.yml/badge.svg)
 
-## Try it in 2 minutes
+## Quick start
 
 ```bash
 cmake -S . -B build && cmake --build build
@@ -45,7 +45,7 @@ flowchart LR
 ```
 
 - **Graph.** Stations are nodes, rides between neighbouring stations are edges with minutes. Adjacency lists in `std::vector`.
-- **Dijkstra on (station, line) states.** A plain station graph cannot see that changing lines takes time. With the line in the state, a transfer is just another edge with its own cost (default 4 min). When two routes take the same time, the one with fewer transfers wins.
+- **Dijkstra on (station, line) states.** A plain station graph cannot see that changing lines takes time. With the line in the state, a transfer is an edge with its own cost (default 4 min). When two routes take the same time, the one with fewer transfers wins.
 - **Fuzzy search.** Names are normalized (`Südtiroler Platz` → `suedtirolerplatz`), then matched exactly, by unique prefix, by substring, and finally by Levenshtein edit distance (about one typo per four letters).
 - **HTML export** draws the route with the official line colours.
 
@@ -53,7 +53,7 @@ Complexity: O((V + E) log V) with `std::priority_queue`; the whole network (≈1
 
 ## Data
 
-`data/` contains lines U1, U2, U3, U4 and U6 with approximate travel times between stations, compiled by hand from public network maps. U2 is modelled in its current shape (Schottentor – Seestadt) while the U2/U5 construction is going on. To add a line, add a row to `lines.csv` and its segments to `segments.csv`.
+`data/` contains lines U1, U2, U3, U4 and U6 with approximate travel times between stations, compiled by hand from public network maps. U2 is modelled in its current shape (Schottentor - Seestadt) while the U2/U5 construction is going on. To add a line, add a row to `lines.csv` and its segments to `segments.csv`.
 
 ## Tests
 
@@ -65,7 +65,7 @@ ctest --test-dir build --output-on-failure
 
 ## Run it in the browser
 
-**Live: https://boris-plotnikov.click/viennaroute/** — plan a trip, try station names with typos and move the transfer cost to see Dijkstra change its mind.
+**Live: https://boris-plotnikov.click/viennaroute/** - plan a trip, try station names with typos and move the transfer cost to see Dijkstra change its mind.
 
 The page runs this C++ code, not a JavaScript copy: the library is compiled to WebAssembly with Emscripten. `wasm/bindings.cpp` wraps Network, StationSearch, RoutePlanner and the formatter in a small `Planner` class; `web/` is a React page that calls it. The button **`</> Under the hood`** shows the C++ code behind every command, cut from the source at build time (`web/codetour.json`, `web/scripts/codetour.mjs`).
 
@@ -81,3 +81,5 @@ C++17 · STL (`priority_queue`, `map`, `optional`) · CMake · GoogleTest · Git
 ## About
 
 Built by Boris Plotnikov as a portfolio project. Travel times are approximate; for real trips use the official Wiener Linien app.
+
+AI tools were used to review code and speed up routine work. The design, the business rules and the tests are my own, and I can explain every part of the code.

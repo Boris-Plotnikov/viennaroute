@@ -4,7 +4,7 @@ import { logRequest, openTour } from "./codetour/store";
 import { LineInfo, Match, Planner, RouteResult, Station, startPlanner } from "./engine";
 
 const LABELS: Labels = {
-  subtitle: "Real C++ code of this program, taken from the repository at build time.",
+  subtitle: "C++ source code of this program, extracted from the repository at build time.",
   requests: "Live calls",
   emptyRequests: "Find a route: every call into the C++ module appears here with the code that handled it.",
 };
@@ -135,8 +135,8 @@ export default function App() {
       <main className="mx-auto max-w-6xl px-4 py-8">
         <h1 className="text-3xl font-bold tracking-tight">Fastest trip through the Vienna U-Bahn</h1>
         <p className="mt-2 max-w-3xl text-slate-600">
-          A route planner written in C++: the network is a graph, the fastest trip is found with Dijkstra's algorithm, and changing lines costs time.
-          The same code as the command-line version and its 18 unit tests is compiled to WebAssembly and runs inside this page.
+          Route planner in C++17. The network is a graph, the fastest trip is found with Dijkstra's algorithm, a change of line costs time.
+          The library used by the command-line version and its 18 unit tests is compiled to WebAssembly and runs in the browser.
         </p>
         <div className="mt-3 flex flex-wrap gap-2 text-xs">
           <span className="rounded-full bg-emerald-100 px-2.5 py-1 font-semibold text-emerald-800">{planner ? `● C++ module loaded in ${loadMs} ms` : failed ? "Could not load the module" : "Loading the C++ module…"}</span>
@@ -162,7 +162,7 @@ export default function App() {
                   <span>One change of line costs</span><span className="text-ink">{transfer} min</span>
                 </label>
                 <input id="transfer" type="range" min={0} max={15} value={transfer} onChange={(e) => setTransfer(Number(e.target.value))} className="w-full accent-[rgb(var(--brand))]" />
-                <p className="text-xs text-muted">Move it and watch Dijkstra choose fewer or more changes.</p>
+                <p className="text-xs text-muted">A higher value leads to routes with fewer changes.</p>
               </div>
               <button disabled={!planner} className="w-full rounded-lg bg-brand py-2 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-50">Find route</button>
               <datalist id="stations">
@@ -218,13 +218,13 @@ export default function App() {
                   </div>
                 </>
               )}
-            <button onClick={() => openTour("dijkstra")} className="mt-4 font-mono text-xs font-semibold text-brand hover:underline">&lt;/&gt; See the C++ that found this route</button>
+            <button onClick={() => openTour("dijkstra")} className="mt-4 font-mono text-xs font-semibold text-brand hover:underline">&lt;/&gt; C++ code of the route search</button>
           </div>
         </div>
 
         <section className="mt-12">
           <h2 className="text-xl font-bold">How it is built</h2>
-          <p className="mt-1 text-sm text-slate-600">Graph, search, formatting and tests — open any part to see the real code.</p>
+          <p className="mt-1 text-sm text-slate-600">Graph, station search, output and tests.</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {(flows ?? []).map((f) => (
               <button key={f.id} onClick={() => openTour(f.id)} className="card p-4 text-left transition hover:border-brand/40">

@@ -5,7 +5,7 @@
 
 ## Context
 
-Official open data (GTFS) contains every tram and bus with full timetables — tens of megabytes. The project needs only the metro and average travel times.
+Official open data (GTFS) contains every tram and bus with full timetables - tens of megabytes. The project needs only the metro and average travel times.
 
 ## Decision
 

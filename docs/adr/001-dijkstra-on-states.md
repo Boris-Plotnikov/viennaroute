@@ -13,7 +13,7 @@ The fastest route must consider that changing lines costs time: walking between 
 |---|---|---|
 | BFS on stations | Very simple | Ignores minutes, finds fewest stops, not fastest trip |
 | Dijkstra on stations | Uses minutes | Cannot see transfers: a route with 3 changes may look "fastest" |
-| Dijkstra on (station, line) | Transfers become edges with a cost | Twice as many states — irrelevant for 100 stations |
+| Dijkstra on (station, line) | Transfers become edges with a cost | Twice as many states - irrelevant for 100 stations |
 | A* | Faster on huge graphs | Needs coordinates for the heuristic; no gain at this size |
 
 ## Decision

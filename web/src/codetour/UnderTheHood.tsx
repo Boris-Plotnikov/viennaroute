@@ -72,8 +72,8 @@ function StepCard({ step, index, expanded }: { step: Step; index: number; expand
         {step.note && <p className="mt-1 text-sm text-slate-600">{step.note}</p>}
       </button>
       <div className="mt-1 font-mono text-[11px] text-muted">
-        {link ? <a href={link} target="_blank" rel="noreferrer" className="hover:text-brand">{step.path}:{step.startLine}–{step.endLine} ↗</a>
-          : <>{step.path}:{step.startLine}–{step.endLine}</>}
+        {link ? <a href={link} target="_blank" rel="noreferrer" className="hover:text-brand">{step.path}:{step.startLine}-{step.endLine} ↗</a>
+          : <>{step.path}:{step.startLine}-{step.endLine}</>}
       </div>
       {open && (
         <div className="mt-2">
@@ -160,7 +160,7 @@ export interface Labels {
 }
 
 const API_LABELS: Labels = {
-  subtitle: "Real code of this application, taken from the repository at build time.",
+  subtitle: "Source code of this application, extracted from the repository at build time.",
   requests: "Live requests",
   emptyRequests: "Use the page: every API call it makes appears here with the code that handles it.",
 };
