@@ -74,6 +74,8 @@ sh web/scripts/build-wasm.sh          # Emscripten in Docker -> web/src/wasm/
 cd web && npm install && npm run build  # static page in web/dist
 ```
 
+The web page was built by an external frontend developer to my specification and under my review; the C++ code and the bindings are mine.
+
 ## Tech stack
 
 C++17 · STL (`priority_queue`, `map`, `optional`) · CMake · GoogleTest · GitHub Actions · Emscripten / WebAssembly

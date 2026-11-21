@@ -237,7 +237,7 @@ export default function App() {
         </section>
 
         <footer className="mt-12 border-t border-slate-200 pt-6 text-sm text-muted">
-          ViennaRoute · a portfolio project by Boris Plotnikov · network data typed by hand from the public line maps · <a href="../" className="hover:text-ink">boris-plotnikov.click</a>
+          ViennaRoute · a portfolio project by Boris Plotnikov · web page by an external frontend developer to my specification · network data typed by hand from the public line maps · <a href="../" className="hover:text-ink">boris-plotnikov.click</a>
         </footer>
       </main>
       <UnderTheHood screen="/" labels={LABELS} />
